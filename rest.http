@@ -1,4 +1,4 @@
-GET http://localhost:5656/
+GET http://localhost:4000/
 
 #### User registering
 POST http://localhost:4000/api/v1/auth/register

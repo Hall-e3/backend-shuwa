@@ -1,15 +1,11 @@
 import mongoose from "mongoose";
 
-const mongoDB = process.env.MONGO_URL || process.env.DEV_DB_URL;
 const InitiateMongoServer = async () => {
   try {
-    await mongoose.connect(mongoDB, {
+    await mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
     });
-    console.log("Connected to DB !!");
-    await mongoose.connection.on("connection", () => {
-      console.log("Mongoose connection to db is very successfully");
-    });
+    console.log("Connected to DB!!");
   } catch (e) {
     console.log(e);
     throw e;
