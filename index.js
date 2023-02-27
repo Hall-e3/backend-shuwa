@@ -15,12 +15,15 @@ app.use(express.json({ extended: true, limit: "30mb" }));
 app.use(express.urlencoded({ extended: true, limit: "30mb" }));
 app.use(cors());
 app.use(morgan("dev"));
-app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/ladies", adminRoutes);
+
 
 app.get("/", (req, res) => {
   res.json({ message: "API Working" });
 });
+
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/ladies", adminRoutes);
+
 
 app.use(async (req, res, next) => {
   next(createErrors.NotFound("This route does not exist"));
