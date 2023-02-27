@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.json({ message: "API Working" });
 });
 
-app.use("/", authRoutes);
+app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/ladies", adminRoutes);
 
 
